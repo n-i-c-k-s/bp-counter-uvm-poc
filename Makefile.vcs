@@ -1,0 +1,54 @@
+# Makefile.vcs — compile and simulate the counter UVM testbench with VCS U-2023.03-1
+#
+# Usage:
+#   make -f Makefile.vcs          # compile + run
+#   make -f Makefile.vcs compile  # compile only
+#   make -f Makefile.vcs run      # run pre-compiled simv
+#   make -f Makefile.vcs clean    # remove generated files
+
+VCS_HOME  := /eda/synopsys/vcs/U-2023.03-1
+VCS       := $(VCS_HOME)/bin/vcs
+UVM_HOME  := $(VCS_HOME)/etc/uvm-ieee
+
+SRCS_RTL  := rtl/counter.sv
+SRCS_TB   := tb/counter_if.sv \
+             tb/counter_pkg.sv \
+             tb/tb_top.sv
+
+VCS_FLAGS := -full64 \
+             -sverilog \
+             -timescale=1ns/1ps \
+             +incdir+$(UVM_HOME)/src \
+             +incdir+tb \
+             $(UVM_HOME)/src/uvm_pkg.sv \
+             $(UVM_HOME)/dpi/uvm_dpi.cc \
+             -CFLAGS -DVCS \
+             +define+UVM_NO_DEPRECATED \
+             -o results/simv_vcs \
+             +UVM_TESTNAME=counter_test \
+             +UVM_VERBOSITY=UVM_MEDIUM
+
+.PHONY: all compile run clean
+
+all: compile run
+
+compile:
+	@echo "=== Compiling with VCS U-2023.03-1 ==="
+	@mkdir -p results
+	VCS_HOME=$(VCS_HOME) $(VCS) $(VCS_FLAGS) \
+	    $(SRCS_RTL) $(SRCS_TB) \
+	    2>&1 | tee results/vcs_compile.log
+	@echo "=== Compile done ==="
+
+run:
+	@echo "=== Running simulation ==="
+	results/simv_vcs \
+	    +UVM_TESTNAME=counter_test \
+	    +UVM_VERBOSITY=UVM_MEDIUM \
+	    2>&1 | tee results/vcs_sim.log
+	@echo "=== Simulation done ==="
+
+clean:
+	rm -rf results/simv_vcs* results/csrc ucli.key vc_hdrs.h \
+	       DVEfiles inter.vpd results/*.log results/*.vdb \
+	       AN.DB .vcs_*
