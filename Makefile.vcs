@@ -49,6 +49,6 @@ run:
 	@echo "=== Simulation done ==="
 
 clean:
-	rm -rf results/simv_vcs* results/csrc ucli.key vc_hdrs.h \
+	rm -rf results/simv_vcs* csrc/ ucli.key vc_hdrs.h \
 	       DVEfiles inter.vpd results/*.log results/*.vdb \
 	       AN.DB .vcs_*

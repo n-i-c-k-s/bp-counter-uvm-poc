@@ -56,8 +56,12 @@ UVM_INFO @ 115000:   [DRV]   Driving: enable=0 num_cycles=3
 UVM_INFO @ 145000:   [SEQ]   Sent DISABLE for 3 cycles
 UVM_INFO @ 145000:   [DRV]   Driving: enable=1 num_cycles=8
 UVM_INFO @ 225000:   [SEQ]   Sent RE-ENABLE for 8 cycles
-UVM_INFO @ 275000:   [TEST]  === counter_test: PASSED ===
-UVM_INFO : 13 | UVM_WARNING : 0 | UVM_ERROR : 0 | UVM_FATAL : 0
+UVM_INFO @ 225000:   [DRV]   Driving: enable=0 num_cycles=3
+UVM_INFO @ 255000:   [SEQ]   Sent IDLE for 3 cycles
+UVM_INFO @ 255000:   [SEQ]   counter_sequence complete
+UVM_INFO @ 255000:   [TEST]  === counter_test: PASSED ===
+UVM_INFO : 15 | UVM_WARNING : 0 | UVM_ERROR : 0 | UVM_FATAL : 0
+$finish at simulation time 255000
 ```
 
 ---
@@ -103,9 +107,9 @@ UVM_INFO @ 0:        [TEST]  === counter_test: run_phase starting ===
 UVM_INFO @ 35000:    [DRV]   Driving: enable=1 num_cycles=8
 UVM_INFO @ 115000:   [SEQ]   Sent ENABLE for 8 cycles
 ...
-UVM_INFO @ 275000:   [TEST]  === counter_test: PASSED ===
-UVM_INFO : 15 | UVM_WARNING : 2 | UVM_ERROR : 0 | UVM_FATAL : 0
-- Verilator: $finish at 275ns
+UVM_INFO @ 255000:   [TEST]  === counter_test: PASSED ===
+UVM_INFO : 17 | UVM_WARNING : 2 | UVM_ERROR : 0 | UVM_FATAL : 0
+- Verilator: $finish at 255ns
 ```
 
 *(2 warnings are benign: `NO_DPI_USED` and `NO_VISIT_CHECK` — expected with `UVM_NO_DPI`)*
@@ -118,7 +122,7 @@ UVM_INFO : 15 | UVM_WARNING : 2 | UVM_ERROR : 0 | UVM_FATAL : 0
 |---|---|---|
 | UVM phases | All ran | All ran |
 | Test result | PASSED | PASSED |
-| Simulation time (ns) | 275 ns | 275 ns |
+| Simulation time (ns) | 255 ns | 255 ns |
 | Wall time (sim only) | 0.37 s | 0.013 s |
 | UVM_ERROR | 0 | 0 |
 | UVM_FATAL | 0 | 0 |

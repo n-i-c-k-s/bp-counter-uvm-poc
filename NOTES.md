@@ -27,8 +27,8 @@
 
 **VCS simulation result:**
 ```
-UVM_INFO : 13 | UVM_WARNING : 0 | UVM_ERROR : 0 | UVM_FATAL : 0
-$finish at 275000 ps (275 ns)
+UVM_INFO : 15 | UVM_WARNING : 0 | UVM_ERROR : 0 | UVM_FATAL : 0
+$finish at 255000 ps (255 ns)
 ```
 
 ---
@@ -49,8 +49,8 @@ $finish at 275000 ps (275 ns)
 
 **Verilator simulation result:**
 ```
-UVM_INFO : 15 | UVM_WARNING : 2 | UVM_ERROR : 0 | UVM_FATAL : 0
-$finish at 275ns (matches VCS to the nanosecond)
+UVM_INFO : 17 | UVM_WARNING : 2 | UVM_ERROR : 0 | UVM_FATAL : 0
+$finish at 255ns (matches VCS to the nanosecond)
 ```
 
 ---
