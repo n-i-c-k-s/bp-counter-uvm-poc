@@ -103,7 +103,7 @@ $finish at 255ns (matches VCS to the nanosecond)
 
 | Metric | VCS U-2023.03-1 | Verilator 5.046 |
 |---|---|---|
-| Compile time | ~9 s (compile+elab+link) | ~200 s (verilation + C++ build, ~124 s with ccache) |
+| Compile time | ~9 s (compile+elab+link) | ~200 s fresh; ~30 s with warm ccache |
 | Simulation time | 0.370 s | 0.013 s |
 | Simulation speed | — | ~28x faster than VCS |
 | Binary size | 1.8 MB (simv_vcs) | 20 MB (Vuvm_pkg) |

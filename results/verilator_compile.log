@@ -21,4 +21,4 @@ rm Vuvm_pkg__ALL.verilator_deplist.tmp
 make[1]: Leaving directory '/home/ns6651/gsoc/bp_counter_uvm_poc/obj_dir_verilator'
 - V e r i l a t i o n   R e p o r t: Verilator 5.046 2026-02-28 rev v5.046
 - Verilator: Built from 19.794 MB sources in 370 modules, into 24.154 MB in 2404 C++ files needing 10.086 MB
-- Verilator: Walltime 117.164 s (elab=1.371, cvt=7.434, bld=107.289); cpu 10.834 s on 4 threads; allocated 766.797 MB
+- Verilator: Walltime 31.316 s (elab=1.375, cvt=7.574, bld=20.919); cpu 11.176 s on 4 threads; allocated 657.008 MB

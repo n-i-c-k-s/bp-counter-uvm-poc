@@ -78,7 +78,7 @@ compile:
 
 run:
 	@echo "=== Running Verilator simulation ==="
-	./$(OBJ_DIR)/Vuvm_pkg \
+	./$(OBJ_DIR)/V$(TOP_MODULE) \
 	    +UVM_TESTNAME=counter_test \
 	    +UVM_VERBOSITY=UVM_MEDIUM \
 	    2>&1 | tee results/verilator_sim.log
