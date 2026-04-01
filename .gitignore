@@ -1,0 +1,28 @@
+# VCS build artifacts
+csrc/
+simv
+simv.daidir/
+*.daidir/
+vc_hdrs.h
+ucli.key
+DVEfiles/
+AN.DB/
+inter.vpd
+novas_dump.log
+novas.conf
+.vcs_*
+
+# Verilator build artifacts
+obj_dir*/
+
+# Simulation binaries (keep logs but not binaries)
+results/simv_vcs
+results/simv_vcs.daidir/
+results/simv_vcs.vdb/
+
+# Common
+*.vdb/
+*.log.bak
+__pycache__/
+*.pyc
+.DS_Store
