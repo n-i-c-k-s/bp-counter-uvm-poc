@@ -2,7 +2,7 @@ Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detec
 Please use '-no_save' simv switch to avoid re-execution or '-suppress=ASLR_DETECTED_INFO' to suppress this message.
 Chronologic VCS simulator copyright 1991-2023
 Contains Synopsys proprietary information.
-Compiler version U-2023.03-1_Full64; Runtime version U-2023.03-1_Full64;  Mar 31 17:10 2026
+Compiler version U-2023.03-1_Full64; Runtime version U-2023.03-1_Full64;  Mar 31 22:16 2026
 UVM_INFO /eda/synopsys/vcs/U-2023.03-1/etc/uvm-ieee/src/base/uvm_root.svh(450) @ 0: reporter [UVM/RELNOTES] 
   ***********       IMPORTANT RELEASE NOTES         ************
 
@@ -21,34 +21,36 @@ All Rights Reserved Worldwide
 
 UVM_INFO @ 0: reporter [RNTST] Running test counter_test...
 UVM_INFO tb/counter_test.sv(19) @ 0: uvm_test_top [TEST] === counter_test: run_phase starting ===
-UVM_INFO tb/counter_sequence.sv(15) @ 0: uvm_test_top.env.agt.seqr@@seq [SEQ] Starting counter_sequence
-UVM_INFO tb/counter_driver.sv(28) @ 35000: uvm_test_top.env.agt.drv [DRV] Driving: enable=1 num_cycles=8
-UVM_INFO tb/counter_sequence.sv(23) @ 115000: uvm_test_top.env.agt.seqr@@seq [SEQ] Sent ENABLE for 8 cycles
-UVM_INFO tb/counter_driver.sv(28) @ 115000: uvm_test_top.env.agt.drv [DRV] Driving: enable=0 num_cycles=3
-UVM_INFO tb/counter_sequence.sv(31) @ 145000: uvm_test_top.env.agt.seqr@@seq [SEQ] Sent DISABLE for 3 cycles
-UVM_INFO tb/counter_driver.sv(28) @ 145000: uvm_test_top.env.agt.drv [DRV] Driving: enable=1 num_cycles=8
-UVM_INFO tb/counter_sequence.sv(39) @ 225000: uvm_test_top.env.agt.seqr@@seq [SEQ] Sent RE-ENABLE for 8 cycles
-UVM_INFO tb/counter_sequence.sv(41) @ 225000: uvm_test_top.env.agt.seqr@@seq [SEQ] counter_sequence complete
-UVM_INFO tb/counter_test.sv(27) @ 275000: uvm_test_top [TEST] === counter_test: PASSED ===
-UVM_INFO tb/counter_test.sv(32) @ 275000: uvm_test_top [TEST] === UVM Report Phase: counter_test complete ===
-UVM_INFO /eda/synopsys/vcs/U-2023.03-1/etc/uvm-ieee/src/base/uvm_report_server.svh(902) @ 275000: reporter [UVM/REPORT/SERVER] 
+UVM_INFO tb/counter_sequence.sv(16) @ 0: uvm_test_top.env.agt.seqr@@seq [SEQ] Starting counter_sequence
+UVM_INFO tb/counter_driver.sv(30) @ 35000: uvm_test_top.env.agt.drv [DRV] Driving: enable=1 num_cycles=8
+UVM_INFO tb/counter_sequence.sv(24) @ 115000: uvm_test_top.env.agt.seqr@@seq [SEQ] Sent ENABLE for 8 cycles
+UVM_INFO tb/counter_driver.sv(30) @ 115000: uvm_test_top.env.agt.drv [DRV] Driving: enable=0 num_cycles=3
+UVM_INFO tb/counter_sequence.sv(32) @ 145000: uvm_test_top.env.agt.seqr@@seq [SEQ] Sent DISABLE for 3 cycles
+UVM_INFO tb/counter_driver.sv(30) @ 145000: uvm_test_top.env.agt.drv [DRV] Driving: enable=1 num_cycles=8
+UVM_INFO tb/counter_sequence.sv(40) @ 225000: uvm_test_top.env.agt.seqr@@seq [SEQ] Sent RE-ENABLE for 8 cycles
+UVM_INFO tb/counter_driver.sv(30) @ 225000: uvm_test_top.env.agt.drv [DRV] Driving: enable=0 num_cycles=3
+UVM_INFO tb/counter_sequence.sv(50) @ 255000: uvm_test_top.env.agt.seqr@@seq [SEQ] Sent IDLE for 3 cycles
+UVM_INFO tb/counter_sequence.sv(52) @ 255000: uvm_test_top.env.agt.seqr@@seq [SEQ] counter_sequence complete
+UVM_INFO tb/counter_test.sv(25) @ 255000: uvm_test_top [TEST] === counter_test: PASSED ===
+UVM_INFO tb/counter_test.sv(30) @ 255000: uvm_test_top [TEST] === UVM Report Phase: counter_test complete ===
+UVM_INFO /eda/synopsys/vcs/U-2023.03-1/etc/uvm-ieee/src/base/uvm_report_server.svh(902) @ 255000: reporter [UVM/REPORT/SERVER] 
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   13
+UVM_INFO :   15
 UVM_WARNING :    0
 UVM_ERROR :    0
 UVM_FATAL :    0
 ** Report counts by id
-[DRV]     3
+[DRV]     4
 [RNTST]     1
-[SEQ]     5
+[SEQ]     6
 [TEST]     3
 [UVM/RELNOTES]     1
 
 $finish called from file "/eda/synopsys/vcs/U-2023.03-1/etc/uvm-ieee/src/base/uvm_root.svh", line 586.
-$finish at simulation time               275000
+$finish at simulation time               255000
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 275000 ps
-CPU Time:      0.370 seconds;       Data structure size:   0.2Mb
-Tue Mar 31 17:10:30 2026
+Time: 255000 ps
+CPU Time:      0.350 seconds;       Data structure size:   0.2Mb
+Tue Mar 31 22:16:37 2026

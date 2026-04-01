@@ -40,7 +40,6 @@ VERILATOR_FLAGS := \
     +define+UVM_NO_DPI \
     +define+UVM_REPORT_DISABLE_FILE_LINE \
     +define+UVM_NO_DEPRECATED \
-    +define+UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR \
     +incdir+$(UVM_HOME) \
     +incdir+tb
 

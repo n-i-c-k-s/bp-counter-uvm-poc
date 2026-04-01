@@ -20,5 +20,5 @@ ccache /opt/rh/gcc-toolset-13/root/usr/bin/g++   -I.  -MMD -I/home/ns6651/local-
 rm Vuvm_pkg__ALL.verilator_deplist.tmp
 make[1]: Leaving directory '/home/ns6651/gsoc/bp_counter_uvm_poc/obj_dir_verilator'
 - V e r i l a t i o n   R e p o r t: Verilator 5.046 2026-02-28 rev v5.046
-- Verilator: Built from 19.792 MB sources in 370 modules, into 24.151 MB in 2404 C++ files needing 10.074 MB
-- Verilator: Walltime 198.679 s (elab=1.401, cvt=7.557, bld=188.612); cpu 11.158 s on 4 threads; allocated 656.949 MB
+- Verilator: Built from 19.794 MB sources in 370 modules, into 24.154 MB in 2404 C++ files needing 10.086 MB
+- Verilator: Walltime 124.391 s (elab=1.330, cvt=7.599, bld=114.338); cpu 11.117 s on 4 threads; allocated 657.016 MB

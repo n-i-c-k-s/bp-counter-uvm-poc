@@ -20,9 +20,7 @@ class counter_test extends uvm_test;
 
         seq = counter_sequence::type_id::create("seq");
         seq.start(env.agt.seqr);
-
-        // Allow monitor to observe last few cycles
-        #50;
+        // Sequence ends with an explicit idle phase; no raw #delay needed here.
 
         `uvm_info("TEST", "=== counter_test: PASSED ===", UVM_NONE)
         phase.drop_objection(this);

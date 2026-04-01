@@ -16,9 +16,11 @@ class counter_driver extends uvm_driver #(counter_seq_item);
 
     task run_phase(uvm_phase phase);
         counter_seq_item item;
-        // Hold reset for 3 cycles at startup
-        vif.driver_cb.rst_n  <= 1'b0;
-        vif.driver_cb.enable <= 1'b0;
+        // Initialize directly (not via CB) so DUT sees valid levels at t=0,
+        // before the clocking block's #1 output delay would take effect.
+        vif.rst_n  = 1'b0;
+        vif.enable = 1'b0;
+        // Hold reset for 3 clocking cycles, then release
         repeat(3) @(vif.driver_cb);
         vif.driver_cb.rst_n <= 1'b1;
         @(vif.driver_cb);

@@ -4,7 +4,7 @@ interface counter_if (input logic clk);
     logic       enable;
     logic [7:0] count;
 
-    // Clocking block for driver (drives on negedge, samples after posedge)
+    // Clocking block for driver (drives #1 after posedge, samples #1 after posedge)
     clocking driver_cb @(posedge clk);
         default input #1 output #1;
         output rst_n;
