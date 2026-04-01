@@ -50,6 +50,7 @@ make -f Makefile.vcs
 ```
 UVM_INFO @ 0:        [RNTST] Running test counter_test...
 UVM_INFO @ 0:        [TEST]  === counter_test: run_phase starting ===
+UVM_INFO @ 0:        [SEQ]   Starting counter_sequence
 UVM_INFO @ 35000:    [DRV]   Driving: enable=1 num_cycles=8
 UVM_INFO @ 115000:   [SEQ]   Sent ENABLE for 8 cycles
 UVM_INFO @ 115000:   [DRV]   Driving: enable=0 num_cycles=3
@@ -60,6 +61,7 @@ UVM_INFO @ 225000:   [DRV]   Driving: enable=0 num_cycles=3
 UVM_INFO @ 255000:   [SEQ]   Sent IDLE for 3 cycles
 UVM_INFO @ 255000:   [SEQ]   counter_sequence complete
 UVM_INFO @ 255000:   [TEST]  === counter_test: PASSED ===
+UVM_INFO @ 255000:   [TEST]  === UVM Report Phase: counter_test complete ===
 UVM_INFO : 15 | UVM_WARNING : 0 | UVM_ERROR : 0 | UVM_FATAL : 0
 $finish at simulation time 255000
 ```
