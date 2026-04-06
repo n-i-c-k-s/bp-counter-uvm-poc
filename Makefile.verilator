@@ -1,0 +1,88 @@
+# Makefile.verilator — compile and simulate the counter UVM testbench with Verilator 5.046
+#
+# Requires:
+#   - Verilator 5.046 installed to ~/local-tools/bin/verilator
+#   - uvm-verilator cloned to ~/local-tools/uvm-verilator
+#
+# Usage:
+#   make -f Makefile.verilator          # compile + run
+#   make -f Makefile.verilator compile  # verilation only
+#   make -f Makefile.verilator run      # run pre-compiled binary
+#   make -f Makefile.verilator clean    # remove generated files
+
+VERILATOR     := $(HOME)/local-tools/bin/verilator
+UVM_HOME      := $(HOME)/local-tools/uvm-verilator/src
+
+# GCC 13 required for C++20 coroutines (--timing flag needs <coroutine> header)
+# RHEL 8 ships GCC 8.5 as default; GCC toolset 13 is available via /opt/rh/
+GCC13_BIN     := /opt/rh/gcc-toolset-13/root/usr/bin
+export PATH   := $(GCC13_BIN):$(PATH)
+OBJ_DIR       := obj_dir_verilator
+TOP_MODULE    := uvm_pkg
+
+SRCS_RTL  := rtl/counter.sv
+SRCS_TB   := tb/counter_if_verilator.sv \
+             tb/counter_pkg_verilator.sv \
+             tb/tb_top_verilator.sv
+
+VERILATOR_FLAGS := \
+    --main \
+    --binary \
+    --build \
+    --cc \
+    --sv \
+    --timing \
+    --Mdir $(OBJ_DIR) \
+    --timescale 1ns/1ps \
+    --error-limit 10 \
+    -j 4 \
+    -DUVM_NO_DPI \
+    +define+UVM_NO_DPI \
+    +define+UVM_REPORT_DISABLE_FILE_LINE \
+    +define+UVM_NO_DEPRECATED \
+    +incdir+$(UVM_HOME) \
+    +incdir+tb
+
+# Suppress UVM library warnings that are known/benign
+DISABLED_WARNINGS := \
+    -Wno-DECLFILENAME \
+    -Wno-CONSTRAINTIGN \
+    -Wno-MISINDENT \
+    -Wno-VARHIDDEN \
+    -Wno-WIDTHTRUNC \
+    -Wno-CASTCONST \
+    -Wno-WIDTHEXPAND \
+    -Wno-UNDRIVEN \
+    -Wno-UNUSEDSIGNAL \
+    -Wno-UNUSEDPARAM \
+    -Wno-SYMRSVDWORD \
+    -Wno-ZERODLY \
+    -Wno-CASEINCOMPLETE \
+    -Wno-SIDEEFFECT \
+    -Wno-REALCVT \
+    -Wno-fatal
+
+.PHONY: all compile run clean
+
+all: compile run
+
+compile:
+	@echo "=== Verilating with Verilator $(shell $(VERILATOR) --version) ==="
+	@mkdir -p results
+	export PATH=$(HOME)/local-tools/bin:$$PATH && \
+	$(VERILATOR) $(VERILATOR_FLAGS) $(DISABLED_WARNINGS) \
+	    $(UVM_HOME)/uvm_pkg.sv \
+	    $(SRCS_RTL) $(SRCS_TB) \
+	    2>&1 | tee results/verilator_compile.log
+	@echo "=== Verilator compile done ==="
+
+run:
+	@echo "=== Running Verilator simulation ==="
+	./$(OBJ_DIR)/V$(TOP_MODULE) \
+	    +UVM_TESTNAME=counter_test \
+	    +UVM_VERBOSITY=UVM_MEDIUM \
+	    2>&1 | tee results/verilator_sim.log
+	@echo "=== Verilator simulation done ==="
+
+clean:
+	rm -rf $(OBJ_DIR) results/verilator_compile.log results/verilator_sim.log
