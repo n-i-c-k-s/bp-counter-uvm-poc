@@ -16,21 +16,21 @@ Built as part of a GSoC proposal for *BlackParrot UVM Testbenches in Verilator*.
 
 ```
 tb/
-  counter_if.sv              # Interface with clocking blocks (VCS)
-  counter_if_verilator.sv    # Interface without clocking blocks (Verilator)
-  counter_pkg.sv             # UVM package for VCS
-  counter_pkg_verilator.sv   # UVM package for Verilator
-  counter_seq_item.sv        # Sequence item (shared)
-  counter_driver.sv          # Driver using clocking blocks (VCS)
-  counter_driver_verilator.sv# Driver using @(posedge clk) (Verilator)
-  counter_monitor.sv         # Monitor with covergroup (VCS)
-  counter_monitor_verilator.sv# Monitor without covergroup (Verilator)
-  counter_agent.sv           # Agent: driver + monitor + sequencer (shared)
-  counter_sequence.sv        # enable→disable→re-enable sequence (shared)
-  counter_env.sv             # Environment (shared)
-  counter_test.sv            # Test class (shared)
-  tb_top.sv                  # Top-level for VCS
-  tb_top_verilator.sv        # Top-level for Verilator
+  counter_if.sv                # Interface with clocking blocks (VCS)
+  counter_if_verilator.sv      # Interface without clocking blocks (Verilator)
+  counter_pkg.sv               # UVM package for VCS
+  counter_pkg_verilator.sv     # UVM package for Verilator
+  counter_seq_item.sv          # Sequence item (shared)
+  counter_driver.sv            # Driver using clocking blocks (VCS)
+  counter_driver_verilator.sv  # Driver using @(posedge clk) (Verilator)
+  counter_monitor.sv           # Monitor with covergroup (VCS)
+  counter_monitor_verilator.sv # Monitor without covergroup (Verilator)
+  counter_agent.sv             # Agent: driver + monitor + sequencer (shared)
+  counter_sequence.sv          # enable→disable→re-enable sequence (shared)
+  counter_env.sv               # Environment (shared)
+  counter_test.sv              # Test class (shared)
+  tb_top.sv                    # Top-level for VCS
+  tb_top_verilator.sv          # Top-level for Verilator
 ```
 
 ---
