@@ -2,7 +2,7 @@
 
 **Proof-of-concept UVM testbench for an 8-bit counter, running on both VCS and Verilator.**
 
-Built as part of a GSoC proposal for *BlackParrot UVM Testbenches in Verilator*. Demonstrates the same UVM test running on an industry-standard simulator (VCS) and an open-source simulator (Verilator), with documented gaps and workarounds.
+Demonstrates the same UVM test running on an industry-standard simulator (VCS) and an open-source simulator (Verilator), with documented gaps and workarounds.
 
 ---
 
